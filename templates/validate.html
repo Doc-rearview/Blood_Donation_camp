@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donation Validation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container"> <img class="logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo">
+         <h1>Donation Validation</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label for="jid">JID:</label>
+            <input type="text" name="jid" id="jid" value="JMI-" required><br><br
+
+            <label for="name">Name (Optional Edit):</label>
+            <input type="text" name="name" id="name"><br><br>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" name="mobile" id="mobile"><br><br>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required><br><br>
+
+            <label for="location">Blood bank and id:  (Optional)</label>
+            <input type="text" name="location" id="location"><br><br>
+
+            <input type="submit" value="Validate Donation">
+        </form>
+        <p><a href="/">Home</a></p>
+    </div>
+</body>
+<footer>
+    <p>&copy; 2025 Doc_rearview</p>
+</footer>
+</html>

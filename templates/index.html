@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Mela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row position-relative">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" class="position-absolute top-0 end-0 logo" alt="Logo" style="width: 150px; height: auto;">
+        <div class="col-6">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="{{ url_for('static', filename='4.jpg') }}" class="d-block w-100 shadow" alt="...">
+                        <div class="carousel-caption d-none d-md-block animate__animated animate__backInDown">
+                            <h2 class="text-start">The gift of blood </h2>
+                            <h2 class="text-start">is the gift of life.</h2>
+                            <h2 class="text-start">Donate Today!</h2>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{{ url_for('static', filename='5.jpg') }}" class="d-block w-100 shadow" alt="...">
+                        <div class="carousel-caption d-none d-md-block animate__animated animate__backInDown">
+                            <h2 class="text-start">Your blood donation </h2>
+                            <h2 class="text-start">can bring a smile</h2>
+                            <h2 class="text-start">to someone's face.</h2>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{{ url_for('static', filename='6.jpg') }}" class="d-block w-100 shadow" alt="...">
+                        <div class="carousel-caption d-none d-md-block animate__animated animate__backInDown">
+                            <h2 class="text-start">Every drop of blood </h2>
+                            <h2 class="text-start">you donate can save a life.</h2>
+                            <h2 class="text-start">Be a lifesaver.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-auto">
+            <h2 class="title">Welcome to the <br> <danger style="color: rgb(249, 0, 0);">Blood Donation Mela</danger>, JMIETI</h2>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="col-5">
+                    <div class="card shadow border-0">
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="btn h-100 py-4 padding-3px">Registrations</a>
+                            </div>
+                            <div class="col-6">
+                                <h3><span style="color: rgb(249, 0, 0)" id="registration-count">{{ registration_count }}</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <div class="card shadow border-0">
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="btn h-100 py-4">Donations</a>
+                            </div>
+                            <div class="col-6">
+                                <h3><span style="color: rgb(249, 0, 0)" id="donation-count">{{ donation_count }}</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 px-4">
+                <div class="card border-0 p-4 rounded-4" style="box-shadow: rgba(0, 0, 139, 0.5) 0 0 7px 0px" id="timer">
+                    <h2 class="timerTitle mb-4">Upcoming <span style="color: rgb(249, 0, 0)">Blood Donation Camp!</span> 🚑❤️</h2>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card timeCard">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-between">
+                                    <div class="circle">
+                                        <h2><span id="days"></span></h2>
+                                    </div>
+                                    <p class="mb-0 mt-2">Days</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card timeCard">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-between">
+                                    <div class="circle">
+                                        <h2><span id="hours"></span></h2>
+                                    </div>
+                                    <p class="mb-0 mt-2">Hour</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card timeCard">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-between">
+                                    <div class="circle">
+                                        <h2><span id="minutes"></span></h2>
+                                    </div>
+                                    <p class="mb-0 mt-2">Minutes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card timeCard">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-between">
+                                    <div class="circle">
+                                        <h2><span id="seconds"></span></h2>
+                                    </div>
+                                    <p class="mb-0 mt-2">Seconds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="button position-absolute bottom-0 end-0">
+            <a href="/admin"><i class="fas fa-user-lock admin-icon"></i></a>
+        </button>
+    </div>
+    <div class="row position-fixed bottom-0 w-100">
+        <div class="col-12 text-center">
+            <span class="design">Crafted with ❤️ by <a href="https://bsdeveloper.web.app/"  target="_blank"> BSDev</a> & <a href="https://akshit-kaushish-profile.onrender.com/" target="_blank">AK._.DR</a></span>
+        </div>
+    </div>
+    <script>
+        // Debugging: Log the countdown date
+        const countdownDate = new Date("{{ get_timer_date() }}").getTime();
+        console.log("Countdown Date:", new Date(countdownDate));  // Debugging
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("timer").innerHTML = "<h1 style='color:red'><b>The Camp Has Started!😀</b><p style='color:royalblue'>Donate Blood, Be a Hero!!</p></h1>";
+            }
+        }, 1000);
+
+        // Refresh Data (Registration and Donation Count)
+        function refreshData() {
+            fetch('/get_updated_data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('registration-count').textContent = data.registration_count;
+                    document.getElementById('donation-count').textContent = data.donation_count;
+                });
+        }
+        refreshData();
+        setInterval(refreshData, 100000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

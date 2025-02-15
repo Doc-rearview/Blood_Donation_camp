@@ -1,0 +1,210 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: Poppins, sans-serif !important;
+}
+
+.logo {
+  border-radius: 0 0 0 50px;
+  box-shadow: rgba(0, 0, 139, 0.5) 0px 0 26px 0px;
+  max-width: 100%; /* Ensure logo is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.carousel-inner {
+  filter: drop-shadow(2px 2px 15px rgba(0, 0, 139, 0.5));
+  border-radius: 0 1100px 1100px 0;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out 0s, opacity ease-in-out 0.6s;
+}
+
+.carousel-caption {
+  z-index: 1;
+  top: 60%;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+  position: relative;
+  font-size: 2.5rem; /* Use rem for scalability */
+  font-family: "Averia Serif Libre", serif;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.carousel-item img {
+  height: 100vh;
+  border-radius: 0 1100px 1100px 0;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.title {
+  font-size: 2.5rem; /* Use rem for scalability */
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0d418b;
+}
+
+.timerTitle {
+  font-size: 2rem; /* Use rem for scalability */
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0d418b;
+}
+
+span {
+  color: #fff;
+}
+
+.stat-number {
+  color: red !important;
+}
+
+.btn {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1rem; /* Use rem for scalability */
+  font-weight: 500 !important;
+  color: white !important;
+  background-color: #0d418b !important;
+  justify-content: center !important;
+}
+
+h3 {
+  display: flex !important;
+  align-items: center !important;
+  height: 100%;
+  font-weight: bold !important;
+  color: #ed3237 !important;
+}
+
+.timeCard {
+  border: 0 !important;
+  border-radius: 15px !important;
+  background: linear-gradient(
+    180deg,
+    rgba(237, 50, 55, 1) 0%,
+    rgba(160, 40, 55, 1) 100%
+  ) !important;
+}
+
+.timeCard .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 7px solid white;
+  background-color: #f05a5e !important;
+}
+
+.timeCard .circle h2 {
+  color: white;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+}
+
+.timeCard p {
+  color: white;
+  font-size: 1rem; /* Use rem for scalability */
+  font-weight: 600 !important;
+}
+
+/* From Uiverse.io by andrew-demchenk0 */
+.button {
+  --bg-color: #fff !important;
+  --main-color: #323232 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 100% !important;
+  border: 2px solid #0d418b !important;
+  background-color: var(--bg-color) !important;
+  box-shadow: 4px 4px #0d418b !important;
+  font-size: 1.5rem !important; /* Use rem for scalability */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: all 0.2s !important;
+  cursor: pointer !important;
+  margin: 20px 20px 20px 0 !important;
+}
+
+.button:active {
+  box-shadow: 0px 0px #0d418b !important;
+  transform: translate(3px, 3px) !important;
+}
+
+ .icon {
+  width: 24px !important;
+  height: 24px !important;
+  fill: #0d418b !important;
+}
+
+.admin-icon {
+  font-size: 16px;
+  color: #0d418b;
+}
+
+.design {
+  color: #0d418b !important;
+  font-weight: 600 !important;
+}
+
+a {
+  color: #0d418b !important;
+  text-decoration: none !important;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .title, .timerTitle {
+    font-size: 2rem; /* Adjust font size for medium screens */
+  }
+  .btn {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-caption h2 {
+    font-size: 2rem; /* Smaller font size for smaller screens */
+  }
+  .timeCard .circle {
+    width: 80px; /* Adjust circle size */
+    height: 80px; /* Adjust circle size */
+  }
+}
+
+@media (max-width: 768px) {
+  .title, .timerTitle {
+    font-size: 1.5rem; /* Further reduce font size */
+  }
+  .btn {
+    font-size: 0.8rem; /* Smaller button font size */
+  }
+  .timeCard .circle {
+    width: 70px; /* Adjust circle size */
+    height: 70px; /* Adjust circle size */
+  }
+}
+
+@media (max-width: 576px) {
+  .title, .timerTitle {
+    font-size: 1.2rem; /* Smallest font size for mobile */
+  }
+  .btn {
+    font-size: 0.7rem; /* Smallest button font size */
+  }
+  .carousel-item img {
+    height: 50vh; /* Reduce image height for mobile */
+  }
+}

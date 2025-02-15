@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Timer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Set Timer for Next Blood Donation Camp</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Display the latest event date if it exists -->
+        {% if latest_event_date %}
+            <p><strong>Current Event Date:</strong> {{ latest_event_date }}</p>
+        {% else %}
+            <p><strong>No event date set yet.</strong></p>
+        {% endif %}
+        <form method="POST">
+            <label for="event_date">Event Date and Time:</label>
+            <input type="datetime-local" name="event_date" id="event_date" required><br><br>
+            <input type="submit" value="Set Timer">
+        </form>
+        <p><a href="/">Home</a></p>
+    </div>
+</body>
+</html>

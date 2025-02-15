@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Mela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img class="logo" src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo">
+            <h1>Welcome to the Blood Donation Mela</h1>
+            <h2>JMIETI</h2>
+            <p class="tagline">"Every Drop Counts. Be a Hero, Donate Blood!"</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="registration-count">{{ registration_count }}</span>
+                    <span class="stat-label">Registrations</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="donation-count">{{ donation_count }}</span>
+                    <span class="stat-label">Donations</span>
+                </div>
+            </div>
+            <!-- Blood Drop Animation -->
+            <div class="blood-drop" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="blood-drop" style="left: 30%; animation-delay: 1s;"></div>
+            <div class="blood-drop" style="left: 50%; animation-delay: 2s;"></div>
+            <div class="blood-drop" style="left: 70%; animation-delay: 3s;"></div>
+            <div class="blood-drop" style="left: 90%; animation-delay: 4s;"></div>
+        </div>
+    </section>
+
+    <!-- Admin Links -->
+    <section class="admin-links">
+        <div class="container">
+            <!-- {% if session.get('is_logged_in') %}
+                <a href="/register" class="btn">Register</a>
+                <a href="/validate" class="btn">Donation Validation</a>
+                <a href="/download_donors_excel" class="btn download-button">Download Donor List (Excel)</a>
+                <a href="/set_timer" class="btn">Set Timer</a>
+                <a href="/logout" class="btn">Logout</a>
+            {% else %} -->
+                <a href="/admin" class="btn">Admin Login</a>
+            <!-- {% endif %} -->
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2>Next Blood Donation Camp in:</h2>
+            <div id="timer">
+                <span id="days"></span> Days
+                <span id="hours"></span> Hours
+                <span id="minutes"></span> Minutes
+                <span id="seconds"></span> Seconds
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Donors Say!</h2>
+            <div id="testimonial-content">
+                <p>"Your blood donation can save lives. Be a hero today!"</p>
+                <p><strong>- Anonymous</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Follow us on:</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/jmietiinstitute/" target="_blank">Facebook</a>
+                <a href="https://x.com/jmietiradaur" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/jmietiofficial/?hl=en" target="_blank">Instagram</a>
+            </div>
+            <p>Current Time: <span id="current-time"></span></p>
+            <p>&copy; 2025 Doc_rearview</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Features -->
+    <script>
+        // Update Current Time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString();
+            document.getElementById('current-time').textContent = timeString;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Refresh Data (Registration and Donation Count)
+        function refreshData() {
+            fetch('/get_updated_data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('registration-count').textContent = data.registration_count;
+                    document.getElementById('donation-count').textContent = data.donation_count;
+                });
+        }
+        refreshData();
+        setInterval(refreshData, 100000);
+
+        // Countdown Timer
+        const countdownDate = new Date("{{ get_timer_date() }}").getTime();
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h2>The Camp Has Started!</h2>";
+            }
+        }, 1000);
+
+           </script>
+</body>
+</html>
