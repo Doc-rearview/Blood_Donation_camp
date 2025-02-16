@@ -11,7 +11,7 @@ body {
 .logo {
   border-radius: 0 0 0 50px;
   box-shadow: rgba(0, 0, 139, 0.5) 0px 0 26px 0px;
-  max-width: 100%; /* Ensure logo is responsive */
+  width: 150px !important; /* Ensure logo is responsive */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -84,6 +84,7 @@ h3 {
   height: 100%;
   font-weight: bold !important;
   color: #ed3237 !important;
+  justify-content: center !important;
 }
 
 .timeCard {
@@ -206,5 +207,9 @@ a {
   }
   .carousel-item img {
     height: 50vh; /* Reduce image height for mobile */
+  }
+  .logo{
+    width: 110px !important;
+    z-index: 11;
   }
 }

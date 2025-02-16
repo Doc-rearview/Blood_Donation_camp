@@ -14,8 +14,8 @@
 </head>
 <body>
     <div class="row position-relative">
-        <img src="{{ url_for('static', filename='logo.jpg') }}" class="position-absolute top-0 end-0 logo" alt="Logo" style="width: 150px; height: auto;">
-        <div class="col-6">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" class="position-absolute top-0 end-0 logo" alt="Logo" >
+        <div class="col-12 col-md-6">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="2000">
@@ -45,40 +45,40 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 my-auto">
+        <div class="col-12 col-md-6 my-md-auto my-4">
             <h2 class="title">Welcome to the <br> <danger style="color: rgb(249, 0, 0);">Blood Donation Mela</danger>, JMIETI</h2>
-            <div class="d-flex justify-content-center mt-4">
-                <div class="col-5">
+            <div class="d-flex justify-content-center mt-4 flex-column flex-md-row px-5 px-md-0">
+                <div class="col-12 col-md-5 mb-3">
                     <div class="card shadow border-0">
                         <div class="row">
-                            <div class="col-6">
-                                <a class="btn h-100 py-4 padding-3px">Registrations</a>
+                            <div class="col-12 col-md-6">
+                                <a class="btn h-100 py-3 py-md-4">Registrations</a>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <h3><span style="color: rgb(249, 0, 0)" id="registration-count">{{ registration_count }}</span></h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-5">
+                <div class="col-12 col-md-1 mb-3"></div>
+                <div class="col-12 col-md-5 mb-3">
                     <div class="card shadow border-0">
                         <div class="row">
-                            <div class="col-6">
-                                <a class="btn h-100 py-4">Donations</a>
+                            <div class="col-12 col-md-6">
+                                <a class="btn h-100 py-3 py-md-4">Donations</a>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <h3><span style="color: rgb(249, 0, 0)" id="donation-count">{{ donation_count }}</span></h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-5 px-4">
+            <div class="row mt-5 px-4 mb-5 mb-md-0">
                 <div class="card border-0 p-4 rounded-4" style="box-shadow: rgba(0, 0, 139, 0.5) 0 0 7px 0px" id="timer">
                     <h2 class="timerTitle mb-4">Upcoming <span style="color: rgb(249, 0, 0)">Blood Donation Camp!</span> 🚑❤️</h2>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-3">
                             <div class="card timeCard">
                                 <div class="card-body d-flex flex-column align-items-center justify-content-between">
                                     <div class="circle">
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-3">
                             <div class="card timeCard">
                                 <div class="card-body d-flex flex-column align-items-center justify-content-between">
                                     <div class="circle">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-3">
                             <div class="card timeCard">
                                 <div class="card-body d-flex flex-column align-items-center justify-content-between">
                                     <div class="circle">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-3">
                             <div class="card timeCard">
                                 <div class="card-body d-flex flex-column align-items-center justify-content-between">
                                     <div class="circle">
